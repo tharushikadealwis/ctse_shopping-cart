@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: server-item-pod
+  labels:
+    name: server-item-pod
+    app: ctse-app
+
+spec:
+  containers:
+    - name: shop-item-pod
+      image: tharushika/sliiit-ctse
+      ports:
+        - containerPort: 8087

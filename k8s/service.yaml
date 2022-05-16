@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-item-pod
+  labels:
+    name: server-item-pod
+    app: ctse-item
+
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8087
+      targetPort: 8087
+  selector:
+    name: server-item-pod
+    app: ctse-item
