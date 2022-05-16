@@ -4,7 +4,7 @@ metadata:
   name: server-item-pod
   labels:
     name: server-item-pod
-    app: ctse-item
+    app: ctse-app
 
 spec:
   type: LoadBalancer
@@ -13,4 +13,4 @@ spec:
       targetPort: 8087
   selector:
     name: server-item-pod
-    app: ctse-item
+    app: ctse-app
