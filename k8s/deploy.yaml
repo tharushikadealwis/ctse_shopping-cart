@@ -9,6 +9,6 @@ metadata:
 spec:
   containers:
     - name: shop-item-pod
-      image: tharushika/sliiit-ctse
+      image: tharushika/ctse-app
       ports:
         - containerPort: 8087
