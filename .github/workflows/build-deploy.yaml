@@ -11,7 +11,7 @@ env:
   REPO_NAME: ${{secrets.REPO_NAME}}
 
 jobs:
-  product-service:
+  item-service:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,12 +23,13 @@ jobs:
       - name: Docker login
         run: |
           docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-      - name: Build product service docker image
+      - name: Build item service docker image
         run: docker build . --file Dockerfile -t "$DOCKER_USERNAME/$REPO_NAME:latest"
-      - name: Push product service docker image
+      - name: Push item service docker image
         run: docker push "$DOCKER_USERNAME/$REPO_NAME:latest"
 
   build:
+    needs: [item-service]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
