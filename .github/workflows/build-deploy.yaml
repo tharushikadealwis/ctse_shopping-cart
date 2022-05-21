@@ -11,7 +11,7 @@ env:
   REPO_NAME: ${{secrets.REPO_NAME}}
 
 jobs:
-  item-service:
+  create-item-image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -28,8 +28,8 @@ jobs:
       - name: Push item service docker image
         run: docker push "$DOCKER_USERNAME/$REPO_NAME:latest"
 
-  build:
-    needs: [item-service]
+  deployment:
+    needs: [create-item-image]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
